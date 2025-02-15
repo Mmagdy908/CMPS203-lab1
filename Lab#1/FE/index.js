@@ -56,7 +56,7 @@ function createEmployee() {
   const name = nameField.value;
 
   //get id
-  const id = +idField.value;
+  const id = idField.value;
 
   // send data to BE
   fetch("http://localhost:3000/api/v1/employee", {
