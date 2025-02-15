@@ -63,10 +63,12 @@ function createEmployee() {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ id, name }),
-  }).then(() => {
-    // call fetchEmployees
-    fetchEmployees();
-  });
+  })
+    .then(() => {
+      // call fetchEmployees
+      fetchEmployees();
+    })
+    .catch((error) => console.error(error));
 
   idField.value = nameField.value = "";
   idField.blur();
@@ -79,10 +81,12 @@ function deleteEmployee(id) {
   // send id to BE
   fetch(`http://localhost:3000/api/v1/employee/${id}`, {
     method: "DELETE",
-  }).then(() => {
-    // call fetchEmployees
-    fetchEmployees();
-  });
+  })
+    .then(() => {
+      // call fetchEmployees
+      fetchEmployees();
+    })
+    .catch((error) => console.error(error));
 }
 
 fetchEmployees();
